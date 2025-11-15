@@ -1,5 +1,5 @@
 configuration {
-    modes: "window,drun";
+    modes: "combi";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -41,7 +41,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-/*	combi-modes: "window,run";*/
+	combi-modes: "drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -53,7 +53,7 @@ configuration {
 /*	click-to-exit: true;*/
 /*	global-kb: false;*/
 /*	max-history-size: 25;*/
-/*  combi-hide-mode-prefix: true*/
+    combi-hide-mode-prefix: true;
 /*	combi-display-format: "{mode} {text}";*/
 /*	matching-negate-char: '-' /* unsupported */;*/
 /*	cache-dir: ;*/
@@ -72,7 +72,7 @@ configuration {
 /*	display-run: ;*/
 /*	display-ssh: ;*/
 /*	display-drun: ;*/
-/*	display-combi: ;*/
+	display-combi: "";
 /*	display-keys: ;*/
 /*	display-filebrowser: ;*/
 /*	display-recursivebrowser: ;*/
