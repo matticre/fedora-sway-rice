@@ -1,0 +1,9 @@
+# Ignore all files and folders in .config/
+*
+
+# EXCEPT for the ones we want to track
+# (This un-ignores the specific folders)
+!.gitignore
+!sway/
+!rofi/
+!foot/
