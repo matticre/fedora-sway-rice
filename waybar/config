@@ -1,0 +1,25 @@
+{
+    "layer": "top",
+    "position": "top",
+    
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    
+    "modules-center": [
+        "clock"
+    ],
+    
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "cpu"
+    ],
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    }
+}

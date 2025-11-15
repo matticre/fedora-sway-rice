@@ -1,0 +1,63 @@
+/* Set the Waybar to use a slightly lighter Nord background (bg1)
+   and a clear font with decent size. */
+#waybar {
+    background-color: #3B4252;
+    color: #D8DEE9;
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 14px;
+    /* Remove any default borders */
+    border: none;
+    /* Add a small radius for a modern touch, if desired */
+    border-radius: 6px;
+}
+
+/* Style for all workspace buttons */
+#workspaces button {
+    padding: 0 10px;
+    margin: 0 2px;
+    background-color: transparent;
+    border: none;
+    color: #88C0D0; /* Primary accent color for inactive workspaces */
+}
+
+/* Style for the currently focused/active workspace */
+#workspaces button.focused {
+    color: #2E3440; /* Dark text color */
+    background-color: #88C0D0; /* Primary accent color background */
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+/* Style for the current Sway mode (e.g., 'resize') */
+#mode {
+    background-color: #BF616A; /* Red/Urgent color */
+    color: #ECEFF4;
+    padding: 0 10px;
+    border-radius: 6px;
+    margin: 0 5px;
+}
+
+#clock {
+    padding: 0 15px;
+    font-weight: bold;
+    /* You can use a secondary accent color for the text if you like */
+    color: #ECEFF4;
+}
+
+/* Style for all modules on the right */
+#pulseaudio, #battery, #cpu, #network {
+    padding: 0 10px;
+    margin: 0 2px;
+    background-color: #4C566A; /* Slightly darker background for contrast */
+    border-radius: 6px;
+}
+
+/* Specific styling for warning/critical states */
+#battery.critical {
+    background-color: #BF616A; /* Red/Urgent background */
+    color: #ECEFF4;
+}
+
+#pulseaudio.muted {
+    color: #D08770; /* Orange/Brown for muted state */
+}
