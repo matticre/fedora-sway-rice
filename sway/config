@@ -21,7 +21,7 @@ set $menu rofi -show combi
 
 ### Startup configuration
 exec_always waybar
-
+#exec_always --no-startup-id env QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland code --ozone-platform=wayland
 
 ### Output configuration
 #
@@ -56,6 +56,7 @@ input type:touchpad {
        tap enabled
        natural_scroll enabled
        middle_emulation enabled
+       drag_lock disabled
 }
 #
 input type:keyboard {
@@ -87,6 +88,9 @@ gaps outer 5
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    # Lock the screen on $mod+l (or whatever keybind you prefer)
+    # bindsym $mod+l exec $lock
+    
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -210,6 +214,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 #
 # Utilities:
@@ -242,5 +247,17 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+
+# --- Swaylock and Swayidle Configuration ---
+# Set a variable for the lock command for cleaner code
+set $lock swaylock -f -c 000000
+
+# Start swayidle daemon
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep '$lock'
 
 include /etc/sway/config.d/*

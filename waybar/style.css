@@ -3,7 +3,7 @@
 #waybar {
     background-color: #3B4252;
     color: #D8DEE9;
-    font-family: "DejaVu Sans Mono", monospace;
+    font-family: "FiraCode Nerd Font", monospace;
     font-size: 14px;
     /* Remove any default borders */
     border: none;
@@ -45,7 +45,7 @@
 }
 
 /* Style for all modules on the right */
-#pulseaudio, #battery, #cpu, #network {
+#pulseaudio, #battery, #cpu, #network, #custom-bluetooth, #custom-power {
     padding: 0 10px;
     margin: 0 2px;
     background-color: #4C566A; /* Slightly darker background for contrast */

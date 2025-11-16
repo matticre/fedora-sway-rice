@@ -12,10 +12,70 @@
     ],
     
     "modules-right": [
+        "network",
+        "custom/bluetooth",
         "pulseaudio",
         "battery",
-        "cpu"
+        "cpu",
+        "custom/power"
     ],
+
+    "custom/bluetooth": {
+        "exec": "bluetoothctl show | grep -q 'Powered: yes' && echo '{\"text\": \"\"}' || echo '{\"text\": \"\"}'",
+        "return-type": "json",
+        "format": " {} ",
+        "tooltip": true,
+        "on-click": "blueman-manager",
+        "interval": 5
+    },
+
+    "network": {
+        "named-interfaces": {
+            "wlp97s0": "wireless",   
+            "enp*": "wired",
+            "eth*": "wired"
+        },
+        "format-wifi": "  {essid}",
+        "format-ethernet": " Wired Link",    
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format-wifi": "Connected to {essid} ({ipaddr})",
+        "tooltip-format-ethernet": "Wired ({ipaddr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 5,
+        "on-click": "nm-connection-editor"
+    },
+
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": " Muted",
+        "tooltip": false,
+        "scroll-step": 1,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "critical": 15,
+            "warning": 30
+        }
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false,
+        "interval": 10
+    },
+
+    "custom/power": {
+        "format": "  ",
+        "tooltip": "false",
+        "on-click": "~/.config/rofi/powermenu.sh" 
+    },
 
     "clock": {
         "format": "{:%Y-%m-%d %H:%M:%S}",
